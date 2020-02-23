@@ -1,6 +1,7 @@
 # pe_to_shellcode
 [![Build status](https://ci.appveyor.com/api/projects/status/w3dy81u0k3up7459?svg=true)](https://ci.appveyor.com/project/hasherezade/pe-to-shellcode)
 [![GitHub release](https://img.shields.io/github/release/hasherezade/pe_to_shellcode.svg)](https://github.com/hasherezade/pe_to_shellcode/releases)
+[![Github All Releases](https://img.shields.io/github/downloads/hasherezade/pe_to_shellcode/total.svg)](http://www.somsubhra.com/github-release-stats/?username=hasherezade&repository=pe_to_shellcode)
 
 Converts PE so that it can be then injected just like a normal shellcode.<br/>
 (At the same time, the output file remains to be a valid PE).<br/>
@@ -40,11 +41,3 @@ runshc.exe <converted file>
 3. If the file runs as the original PE, it confirms that the conversion was successful!<br/>
 Now you can use the converted PE just like you would use a shellcode: inject it to a target and execute from the beginning of the buffer. No additional PE loaders are required.<br/>
 At the same time, you can keep using the converted file as a regular PE.
-
-Latest builds*:
--
-*those builds are available for testing and they may be ahead of the official release:
-+ [pe2shc.exe](https://goo.gl/LfJaVZ) - PE to shellcode converter
-+ [runshc32.exe](https://goo.gl/xi3fzQ) - a utility to run/test 32-bit shellcode (loads and deploys)
-+ [runshc64.exe](https://goo.gl/TE4bhr) - a utility to run/test 64-bit shellcode (loads and deploys)
-<hr/>
