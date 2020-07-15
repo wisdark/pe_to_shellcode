@@ -7,6 +7,8 @@ Converts PE so that it can be then injected just like a normal shellcode.<br/>
 (At the same time, the output file remains to be a valid PE).<br/>
 <b>Supports both 32 and 64 bit PEs</b>
 
+*Authors: [@hasherezade](https://github.com/hasherezade) & [@hh86](https://github.com/86hh)*
+
 Objective:
 -
 The goal of this project is to provide a possibility to generate PE files that can be injected with minimal effort.
@@ -21,12 +23,12 @@ git clone --recursive https://github.com/hasherezade/pe_to_shellcode.git
 
 How to use it:
 -
-1. Use pe2shc.exe to convert a PE of your choice:
+1. Use **pe2shc.exe** to convert a PE of your choice:
 ```
 pe2shc.exe <path to your PE> [output path*]
 * - optional
 ```
-If the PE was successfuly converted, pe2shc will let you know where the output was saved:
+If the PE was successfuly converted, **pe2shc** will let you know where the output was saved:
 ```
 [+] Saved to file: <converted file>
 ```
@@ -34,10 +36,13 @@ i.e.
 ```
 [+] Saved to file: test_file.shc.exe
 ```
-2. Use runshc.exe to run the output file and check if the conversion went fine:
+2. Use **runshc.exe**(*) to run the output file and check if the conversion went fine.
 ```
 runshc.exe <converted file>
 ```
+
+(*)Warning: remember to use the version of **runshc** with a bitness appropriate to your converted application (32 or 64 bit) - otherwise the application will crash!
+
 3. If the file runs as the original PE, it confirms that the conversion was successful!<br/>
 Now you can use the converted PE just like you would use a shellcode: inject it to a target and execute from the beginning of the buffer. No additional PE loaders are required.<br/>
 At the same time, you can keep using the converted file as a regular PE.
