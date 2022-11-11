@@ -1,8 +1,10 @@
-cmake_minimum_required (VERSION 2.8)
+cmake_minimum_required ( VERSION 3.0 )
 
 project ( pe2shc )
 
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+
+option(OLD_LOADER "Build with the old loader stub" OFF)
 
 # include libpeconv headers:
 include_directories ( ${PECONV_DIR}/include )
@@ -16,12 +18,18 @@ set (hdrs
 	resource.h
 )
 
-set (rsrc
-	resource.rc
-)
+if( OLD_LOADER )
+	set (rsrc
+		resource1.rc
+	)
+	add_definitions(-DOLD_LOADER)
+else()
+	set (rsrc
+		resource2.rc
+	)
+endif()
 
 add_executable ( ${PROJECT_NAME} ${hdrs} ${srcs} ${rsrc} main.cpp )
-
 
 # link with libpeconv.lib
 target_link_libraries ( ${PROJECT_NAME} ${PECONV_LIB} )
